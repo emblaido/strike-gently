@@ -12,13 +12,14 @@
     </div>
   </div>
   <a class="button is-dark" href="{% url 'art_list' %}">Clear Search</a>
+  <a class="button is-dark" href="{% url 'art_create' %}">Add Art</a>
 </form>
 <div class="gallery">
   {% for art in art %}
   <a href="">
     <div class="card">
-      <div class="card-image">
-        <figure class="image is-square">
+      <div class="card-img">
+        <figure class="img is-square">
           <img src="{{art.img}}" alt="{{art.name}}" />
         </figure>
       </div>
