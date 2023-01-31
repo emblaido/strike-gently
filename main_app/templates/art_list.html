@@ -16,7 +16,7 @@
 </form>
 <div class="gallery">
   {% for art in art %}
-  <a href="">
+  <a href="{% url 'art_detail' art.pk %}">
     <div class="card">
       <div class="card-img">
         <figure class="img is-square">
