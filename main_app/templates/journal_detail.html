@@ -1,10 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="detail__img">
-    <img src="{{art.img}}" alt="{{art.name}}" />
+    <img src="{{journal.img}}" alt="{{journal.name}}" />
 </div>
 <div class="detail__name">
-    {% if art.verified_art %}
+    {% if journal.verified_journal %}
     <div class="icon-text">
         <span class="icon has-text-info">
             <i class="fas fa-check-circle"></i>
@@ -12,16 +12,16 @@
         <span>Verified</span>
     </div>
     {% endif %}
-    <h1 class="title">{{art.name}}</h1>
+    <h1 class="title">{{journal.name}}</h1>
 </div>
 <div class="detail__container">
     <div class="buttons">
-        <a href="{% url 'art_update' art.pk %}" class="button is-info">
+        <a href="{% url 'journal_update' journal.pk %}" class="button is-info">
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>
         </a>
-        <a href="{% url 'art_delete' art.pk %}" class="button is-danger">
+        <a href="{% url 'journal_delete' journal.pk %}" class="button is-danger">
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
@@ -29,7 +29,7 @@
     </div>
     <div class="detail__about">
         <h4 class="title is-4">About</h4>
-        <p>{{art.bio}}</p>
+        <p>{{journal.bio}}</p>
     </div>
 </div>
 

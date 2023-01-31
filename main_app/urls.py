@@ -5,9 +5,9 @@ from . import views
 urlpatterns = [
     path('', views.Home.as_view(), name="home"),
     path('about/', views.About.as_view(), name="about"),
-    path('art/', views.ArtList.as_view(), name="art_list"),
-    path('artists/new/', views.ArtCreate.as_view(), name="art_create"),
-    path('art/<int:pk>/', views.ArtDetail.as_view(), name="art_detail"),
-    path('art/<int:pk>/update',views.ArtUpdate.as_view(), name="art_update"),
-    path('art/<int:pk>/delete',views.ArtDelete.as_view(), name="art_delete"),
+    path('journal/', views.JournalList.as_view(), name="journal_list"),
+    path('journalists/new/', views.JournalCreate.as_view(), name="journal_create"),
+    path('journal/<int:pk>/', views.JournalDetail.as_view(), name="journal_detail"),
+    path('journal/<int:pk>/update',views.JournalUpdate.as_view(), name="journal_update"),
+    path('journal/<int:pk>/delete',views.JournalDelete.as_view(), name="journal_delete"),
 ]
