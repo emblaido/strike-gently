@@ -40,3 +40,9 @@ class ArtCreate(CreateView):
 class ArtDetail(DetailView):
     model = Art
     template_name = "art_detail.html"
+
+class ArtUpdate(UpdateView):
+    model = Art
+    fields = ['name', 'img', 'bio',]
+    template_name = "art_update.html"
+    success_url = "/art/"
