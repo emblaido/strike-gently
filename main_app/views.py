@@ -35,7 +35,8 @@ class ArtCreate(CreateView):
     model = Art
     fields = ['name', 'img', 'bio',]
     template_name = "art_create.html"
-    success_url = "/art/"
+    def get_success_url(self):
+        return reverse('art_detail', kwargs={'pk': self.object.pk})
 
 class ArtDetail(DetailView):
     model = Art
@@ -46,3 +47,5 @@ class ArtUpdate(UpdateView):
     fields = ['name', 'img', 'bio',]
     template_name = "art_update.html"
     success_url = "/art/"
+    def get_success_url(self):
+        return reverse('art_detail', kwargs={'pk': self.object.pk})
