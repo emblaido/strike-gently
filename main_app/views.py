@@ -49,3 +49,8 @@ class ArtUpdate(UpdateView):
     success_url = "/art/"
     def get_success_url(self):
         return reverse('art_detail', kwargs={'pk': self.object.pk})
+
+class ArtDelete(DeleteView):
+    model = Art
+    template_name = "art_delete_confirmation.html"
+    success_url = "/art/"
