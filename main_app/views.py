@@ -21,11 +21,6 @@ class About(TemplateView):
 class Therapy(TemplateView):
     template_name = "therapy.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["therapy"] = Therapy.objects.all() 
-        return context
-
 
 class JournalList(TemplateView):
     template_name = "journal_list.html"
