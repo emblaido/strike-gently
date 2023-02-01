@@ -1,1 +1,1 @@
-web: gunicorn strike-gently.wsgi
+web: gunicorn strike_project.wsgi
