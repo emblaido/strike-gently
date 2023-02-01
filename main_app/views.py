@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponse 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Journal
+from .models import Therapy
 # Create your views here.
 
 
@@ -16,6 +17,14 @@ class Home(TemplateView):
 
 class About(TemplateView):
     template_name = "about.html"
+
+class Therapy(TemplateView):
+    template_name = "therapy.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["therapy"] = Therapy.objects.all() 
+        return context
 
 
 class JournalList(TemplateView):
