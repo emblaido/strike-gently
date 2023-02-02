@@ -11,5 +11,4 @@ urlpatterns = [
     path('journal/<int:pk>/', views.JournalDetail.as_view(), name="journal_detail"),
     path('journal/<int:pk>/update',views.JournalUpdate.as_view(), name="journal_update"),
     path('journal/<int:pk>/delete',views.JournalDelete.as_view(), name="journal_delete"),
-    path('therapy/', views.Therapy.as_view(), name="therapy"),
 ]

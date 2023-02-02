@@ -6,6 +6,8 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse
 from django.http import HttpResponse 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView
+from django.urls import reverse_lazy
 from .models import Journal
 from .models import Therapy
 # Create your views here.
@@ -58,3 +60,4 @@ class JournalDelete(DeleteView):
     model = Journal
     template_name = "journal_delete_confirmation.html"
     success_url = "/journal/"
+
