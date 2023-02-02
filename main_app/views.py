@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse
@@ -16,6 +16,7 @@ from .models import Therapy
 from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+
 # Create your views here.
 
 
@@ -81,7 +82,7 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return _RedirectStream("journal_list")
+            return redirect("journal")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)

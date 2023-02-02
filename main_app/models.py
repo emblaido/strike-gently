@@ -8,8 +8,11 @@ class Member(models.Model):
   lastname = models.CharField(max_length=255)
   phone = models.CharField(max_length=255, default=8675309)
   joined_date = models.DateField(null=True)
+  user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+  department = models.CharField(max_length=100, default=8675309)
 
   def __str__(self):
+
     return f"{self.firstname} {self.lastname}"
 
 
