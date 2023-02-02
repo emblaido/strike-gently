@@ -1,3 +1,5 @@
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.shortcuts import render
@@ -33,6 +35,7 @@ class JournalList(TemplateView):
         if name != None:
             context["journal"] = Journal.objects.filter(name__icontains=name)
         else:
+            Journal.objects.filter(user=self.request.user)
             context["journal"] = Journal.objects.all()
             context["header"] = "journal"
         return context
@@ -41,6 +44,9 @@ class JournalCreate(CreateView):
     model = Journal
     fields = ['name', 'img', 'bio',]
     template_name = "journal_create.html"
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(JournalCreate, self).form_valid(form)
     def get_success_url(self):
         return reverse('journal_detail', kwargs={'pk': self.object.pk})
 
@@ -60,4 +66,19 @@ class JournalDelete(DeleteView):
     model = Journal
     template_name = "journal_delete_confirmation.html"
     success_url = "/journal/"
+
+class Signup(View):
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("artist_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
 

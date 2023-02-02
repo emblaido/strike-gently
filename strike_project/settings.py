@@ -126,3 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import django_on_heroku
 django_on_heroku.settings(locals())
+
+LOGIN_REDIRECT_URL = '/journal/'
+LOGOUT_REDIRECT_URL = '/'
