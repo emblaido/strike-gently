@@ -1,3 +1,4 @@
+from contextlib import _RedirectStream
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
@@ -12,6 +13,9 @@ from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import Journal
 from .models import Therapy
+from django.views import View
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 # Create your views here.
 
 
@@ -25,7 +29,7 @@ class About(TemplateView):
 class Therapy(TemplateView):
     template_name = "therapy.html"
 
-
+@method_decorator(login_required, name='dispatch')
 class JournalList(TemplateView):
     template_name = "journal_list.html"
 
@@ -77,7 +81,7 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("artist_list")
+            return _RedirectStream("journal_list")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
