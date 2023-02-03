@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="detail__img">
+    <img src="{{therapy.img}}" alt="{{therapy.name}}" />
+</div>
+<div class="detail__name">
+    {% if therapy.verified_therapy %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>Verified</span>
+    </div>
+    {% endif %}
+    <h1 class="title">{{therapy.name}}</h1>
+</div>
+<div class="detail__container">
+    </div>
+    <div class="detail__therapy mb-5">
+        <h3 class="title is-3">therapy entrys</h3>
+    
+        {% for therapy in therapy.info.all %}
+        <div class="therapy">
+          <span>{{forloop.counter}}</span>
+          <span><b>{{therapy.title}}</b></span>
+          <span>{{therapy.length}}</span>
+        </div>
+            {% empty %}
+        <article class="message">
+          <div class="message-header">
+            <p>No Info Available</p>
+          </div>
+        </article>
+    
+        {% endfor %}
+      </div>
+    <div class="detail__about">
+        <h4 class="title is-4">About</h4>
+        <p>{{therapy.bio}}</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -2,7 +2,7 @@
 
 <h1 class="title pt-5">{{header}}</h1>
 
-<!--<form class="mb-5" method="get">
+<form class="mb-5" method="get">
   <div class="field has-addons">
     <div class="control">
       <input class="input" type="text" name="name" placeholder="name" />
@@ -12,13 +12,10 @@
     </div>
   </div>
   <a class="button is-dark" href="{% url 'therapy' %}">Clear Search</a>
-  <a class="button is-dark" href="{% url 'therapy' %}">Add therapy</a>
-</form>-->
-<div class="gallery">
-  
-  {% for therapy in therapy %}
-  <h1>helloe toast</h1>
 
+</form>
+<div class="gallery">
+  {% for therapy in therapy %}
   <a href="{% url 'therapy_detail' therapy.pk %}">
     <div class="card">
       <h1>hello toast</h1>
