@@ -27,8 +27,15 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
+
 class Therapy(TemplateView):
     template_name = "therapy.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['therapy'] = Therapy.objects.all()
+        return context
+
+        
 
 @method_decorator(login_required, name='dispatch')
 class JournalList(TemplateView):
