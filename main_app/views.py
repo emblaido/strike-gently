@@ -69,6 +69,11 @@ class JournalCreate(CreateView):
 class JournalDetail(DetailView):
     model = Journal
     template_name = "journal_detail.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["journal"] = Journal.objects.all()
+        context = super().get_context_data(**kwargs)
+        return context
 
 class JournalUpdate(UpdateView):
     model = Journal

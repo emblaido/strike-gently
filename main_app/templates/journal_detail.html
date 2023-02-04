@@ -30,18 +30,20 @@
     <div class="detail__journals mb-5">
         <h3 class="title is-3">journal entrys</h3>
     
-        {% for journal in journal.info.all %}
+        {% for journal in journals %}
         <div class="journal">
+            <h1>journal class</h1>
           <span>{{forloop.counter}}</span>
+          <span><b>{{journal.user}}</b></span>
           <span><b>{{journal.title}}</b></span>
           <span>{{journal.length}}</span>
         </div>
             {% empty %}
-        <article class="message">
+        <!--<article class="message">
           <div class="message-header">
             <p>No Info Available</p>
           </div>
-        </article>
+        </article>-->
     
         {% endfor %}
       </div>
