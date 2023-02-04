@@ -1,56 +1,56 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="detail__img">
-    <img src="{{journal.img}}" alt="{{journal.name}}" />
+  <img src="{{journal.img}}" alt="{{journal.name}}" />
 </div>
 <div class="detail__name">
-    {% if journal.verified_journal %}
-    <div class="icon-text">
-        <span class="icon has-text-info">
-            <i class="fas fa-check-circle"></i>
-        </span>
-        <span>Verified</span>
-    </div>
-    {% endif %}
-    <h1 class="title">{{journal.name}}</h1>
+  {% if journal.verified_journal %}
+  <div class="icon-text">
+    <span class="icon has-text-info">
+      <i class="fas fa-check-circle"></i>
+    </span>
+    <span>Verified</span>
+  </div>
+  {% endif %}
+  <h1 class="title">{{journal.name}}</h1>
 </div>
 <div class="detail__container">
-    <div class="buttons">
-        <a href="{% url 'journal_update' journal.pk %}" class="button is-info">
-            <span class="icon">
-                <i class="fas fa-edit"></i>
-            </span>
-        </a>
-        <a href="{% url 'journal_delete' journal.pk %}" class="button is-danger">
-            <span class="icon">
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a>
+  <div class="buttons">
+    <a href="{% url 'journal_update' journal.pk %}" class="button is-info">
+      <span class="icon">
+        <i class="fas fa-edit"></i>
+      </span>
+    </a>
+    <a href="{% url 'journal_delete' journal.pk %}" class="button is-danger">
+      <span class="icon">
+        <i class="fas fa-trash-alt"></i>
+      </span>
+    </a>
+  </div>
+ <!-- <div class="detail__journals mb-5">
+    <h3 class="title is-3">journal entrys</h3>
+
+
+      <h1>if</h1>
+      <h1>{{journals}}</h1>
+    <div class="journal">
+      <h1>journal class</h1>
+      <span><b>{{journal.user}}</b></span>
+      <span><b>{{journal.title}}</b></span>
+      <span>{{journal.length}}</span>
     </div>
-    <div class="detail__journals mb-5">
-        <h3 class="title is-3">journal entrys</h3>
-    
-        {% for journal in journals %}
-        <div class="journal">
-            <h1>journal class</h1>
-          <span>{{forloop.counter}}</span>
-          <span><b>{{journal.user}}</b></span>
-          <span><b>{{journal.title}}</b></span>
-          <span>{{journal.length}}</span>
-        </div>
-            {% empty %}
-        <!--<article class="message">
+    <article class="message">
           <div class="message-header">
             <p>No Info Available</p>
           </div>
         </article>-->
-    
-        {% endfor %}
-      </div>
-    <div class="detail__about">
-        <h4 class="title is-4">About</h4>
-        <p>{{journal.bio}}</p>
-    </div>
+  </div>
+  <div class="detail__about">
+    <h4 class="title is-4">About</h4>
+    <p>{{journal.bio}}</p>
+    <p>{{journal.user}}</p>
+    <p>{{journal.pk}}</p>
+
+  </div>
 </div>
 
 {% endblock %}

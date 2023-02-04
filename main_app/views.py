@@ -48,7 +48,8 @@ class JournalList(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
-        if name != None:
+        print(name)
+        if name != None: 
             context["journal"] = Journal.objects.filter(name__icontains=name)
         else:
             Journal.objects.filter(user=self.request.user)
@@ -71,7 +72,8 @@ class JournalDetail(DetailView):
     template_name = "journal_detail.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["journal"] = Journal.objects.all()
+        context["journals"] = Journal.objects.all()
+        print(Journal.objects.all)
         context = super().get_context_data(**kwargs)
         return context
 
