@@ -15,7 +15,8 @@
   <a class="button is-dark" href="{% url 'journal_create' %}">Add journal</a>
 </form>
 <div class="gallery">
-  {% for journal in journal %}
+  {% for journal in journal %} 
+  {% if cur_user == journal.user %}
   <a href="{% url 'journal_detail' journal.pk %}">
     <div class="card">
       <div class="card-img">
@@ -28,6 +29,7 @@
       </div>
     </div>
   </a>
+  {% endif %}
   {% endfor %}
 </div>
 
