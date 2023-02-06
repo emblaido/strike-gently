@@ -35,3 +35,6 @@ future features include
 
 bugs- 
 •infromation stopped displaying for therapies
+
+
+BIG shoutouts to my programming buddies for staying with me through the end of the course, their encouragement and friendship as well as all of their help kept me going, thank you, Cindy and Branda! 
