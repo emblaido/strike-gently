@@ -13,9 +13,9 @@ the user can select from several informational resources or therapies to learn m
 the user may also create an account to log triggers, mood swings, and general feelings either in depressive episodes or continuously journal as an act of self-care, keeping a record of the highs and lows is a wonderful way to deeper understand what one may be struggling with, with understanding comes to the power to identify more effective forms of treatment, "what works best for me?" "what triggered me so hard last time?" "how did I come out of it?" "how long did it last?" being able to answer these questions will help our users in the long run which is why we have a search feature readily available to find old journals.
 
 
-For this project I used several GA-provided notations on Django and python functions, I also received assistance from my Pod leader and the office hours instructor (thank you to you both) 
+For this project I used several GA-provided notations on Django and python functions, including but not limited too, "Django URLs, Views, and Templates " "Django models" "Django deployment" I also received assistance from my Pod leader and the office hours instructor (thank you to you both) 
 
-technologies used were Django, Python, SQL, 
+technologies used were Django, Python, SQL, html, bulma css, static 
 
 to run my app, please fork and clone my repo, and install the necessary technologies, 
 
